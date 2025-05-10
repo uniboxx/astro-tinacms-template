@@ -47,15 +47,15 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="description" content={description} />
 
 <!-- SEO COMPONENT -->
-<!-- <SEO
+<SEO
   title={title}
   description={description}
   openGraph={{
     basic: {
-      title,
+      title: title || 'Astro Blog + Tina',
       type: 'website',
-      image: new URL(image, Astro.url).toString(),
-      url: Astro.url.toString(),
+      image: String(new URL(image, Astro.url)),
+      url: String(Astro.url),
     },
     optional: {
       description,
@@ -63,12 +63,12 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
   }}
   twitter={{
     card: 'summary_large_image',
-    site: Astro.url.toString(),
+    site: String(Astro.url),
     title,
     description,
     image: new URL(image, Astro.url).toString(),
   }}
-/> -->
+/>
 <!-- Open Graph / Facebook -->
 <!-- <meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
