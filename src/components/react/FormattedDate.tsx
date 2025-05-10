@@ -1,22 +1,20 @@
+import React from 'react';
 
-import React from 'react'
-
-function FormattedDate({ date }: { date: string }) {
-	const _date = new Date(date)
-	return (
-		<time dateTime={_date.toISOString()}>
-			{
-				_date.toLocaleDateString('en-us', {
-					year: 'numeric',
-					month: 'short',
-					day: 'numeric',
-				})
-			}
-		</time>
-	)
+interface Props {
+  date: string;
 }
 
-export default FormattedDate
+function FormattedDate({ date }: Props) {
+  const _date = new Date(date);
+  return (
+    <time dateTime={_date.toISOString()}>
+      {_date.toLocaleDateString('en-us', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })}
+    </time>
+  );
+}
 
-
-
+export default FormattedDate;
